@@ -23,4 +23,10 @@
   border: none;
   background-color: transparent;
   text-decoration: underline;
+  transition: all 0.2s;
+}
+
+.header__btn:hover {
+  cursor: pointer;
+  color: var(--slate-900);
 }
