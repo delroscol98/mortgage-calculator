@@ -30,7 +30,7 @@ html {
   font-family: "Plus Jakarta Sans", sans-serif;
 }
 
-@media screen and (max-width: 23.4375em) {
+@media screen and (max-width: 23.4em) {
   html {
     font-size: 50%;
   }

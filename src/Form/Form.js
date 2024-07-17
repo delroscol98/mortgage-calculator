@@ -1,7 +1,7 @@
 import "./Form.css";
 
 const Form = ({ children }) => {
-  return <section className="form">{children}</section>;
+  return <form className="form">{children}</form>;
 };
 
 export default Form;
