@@ -1,0 +1,9 @@
+.form {
+  padding: var(--gap-32) var(--gap-24);
+}
+
+@media screen and (min-width: 48em) {
+  .form {
+    padding: var(--gap-40);
+  }
+}
