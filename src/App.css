@@ -1,0 +1,17 @@
+.calculator {
+  background-color: var(--white);
+}
+
+@media screen and (min-width: 48em) {
+  .calculator {
+    margin: 4rem auto;
+    width: min(94.79166667%, 100.8rem);
+    border-radius: 2.4rem;
+  }
+}
+
+@media screen and (min-width: 64em) {
+  .calculator {
+    margin-top: 20.9rem;
+  }
+}

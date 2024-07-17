@@ -23,7 +23,7 @@ html {
   font-family: "Plus Jakarta Sans", sans-serif;
 }
 
-@media screen and (max-width: var(--bp-phone)) {
+@media screen and (max-width: 23.4375em) {
   html {
     font-size: 50%;
   }
