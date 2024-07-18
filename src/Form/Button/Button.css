@@ -1,0 +1,18 @@
+.calculate__btn {
+  width: 100%;
+  padding: var(--gap-16) 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--gap-12);
+  border: none;
+  border-radius: 3rem;
+  background-color: var(--primary-lime);
+  color: var(--slate-900);
+}
+
+@media screen and (min-width: 48em) {
+  .calculate__btn {
+    width: 31.4rem;
+  }
+}

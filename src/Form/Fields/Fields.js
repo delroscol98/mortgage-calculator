@@ -1,6 +1,6 @@
 import "./Fields.css";
 
-const Fields = () => {
+const Fields = ({ children }) => {
   return (
     <section className="fields">
       <article className="fields__container">
@@ -78,6 +78,7 @@ const Fields = () => {
           </label>
         </article>
       </section>
+      {children}
     </section>
   );
 };
