@@ -53,10 +53,13 @@ const Fields = () => {
           <input
             className="fields__radio--container-input"
             type="radio"
-            name="repayment"
+            name="mortgage-type"
             id="repayment"
           />
-          <label className="fields__radio--container-label" htmlFor="repayment">
+          <label
+            className="fields__radio--container-label fs-18"
+            htmlFor="repayment"
+          >
             Repayment
           </label>
         </article>
@@ -64,10 +67,13 @@ const Fields = () => {
           <input
             className="fields__radio--container-input"
             type="radio"
-            name="interest"
+            name="mortgage-type"
             id="interest"
           />
-          <label className="fields__radio--container-label" htmlFor="interest">
+          <label
+            className="fields__radio--container-label fs-18"
+            htmlFor="interest"
+          >
             Interest Only
           </label>
         </article>

@@ -41,14 +41,50 @@
 }
 
 .fields__radio {
+  display: grid;
+  gap: 1.2rem;
 }
 
 .fields__radio--legend {
   color: var(--slate-700);
 }
 
+.fields__radio--container {
+  border: 1px solid var(--slate-500);
+  border-radius: 0.4rem;
+  padding: var(--gap-12) var(--gap-16);
+  display: flex;
+  align-items: center;
+  gap: var(--gap-16);
+}
+
 .fields__radio--container-label {
+  color: var(--slate-900);
 }
 
 .fields__radio--container-input {
+  appearance: none;
+  background-color: transparent;
+  font: inherit;
+  color: currentColor;
+  width: 1.95rem;
+  height: 1.95rem;
+  border: 2px solid var(--slate-700);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.fields__radio--container-input::before {
+  content: "";
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background-color: var(--slate-700);
+  opacity: 0;
+  transition: all 0.2s;
+}
+
+.fields__radio--container-input:checked::before {
+  opacity: 1;
 }
