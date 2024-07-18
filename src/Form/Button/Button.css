@@ -9,6 +9,12 @@
   border-radius: 3rem;
   background-color: var(--primary-lime);
   color: var(--slate-900);
+  transition: all 0.2s;
+}
+
+.calculate__btn:hover {
+  cursor: pointer;
+  background-color: #ebed97;
 }
 
 @media screen and (min-width: 48em) {

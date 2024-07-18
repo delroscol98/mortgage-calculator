@@ -20,12 +20,27 @@
   border-radius: 0.4rem;
   border: 1px solid var(--slate-500);
   overflow: hidden;
+  transition: all 0.2s;
+}
+
+.fields__input-container:has(.fields__input-container--input:hover) {
+  border: 1px solid var(--slate-900);
+}
+
+.fields__input-container:has(.fields__input-container--input:focus) {
+  border: 1px solid var(--primary-lime);
+}
+
+.fields__input-container:has(.fields__input-container--input:focus)
+  .fields__input-container--fix {
+  background-color: var(--primary-lime);
 }
 
 .fields__input-container--fix {
   color: var(--slate-700);
   background-color: var(--slate-100);
   padding: var(--gap-12) var(--gap-16);
+  transition: all 0.2s;
 }
 
 .fields__input-container--input {
@@ -33,6 +48,10 @@
   padding: var(--gap-12) var(--gap-16);
   border: none;
   outline: none;
+}
+
+.fields__input-container--input:hover {
+  cursor: pointer;
 }
 
 .fields__TermRate {
@@ -62,10 +81,26 @@
   display: flex;
   align-items: center;
   gap: var(--gap-16);
+  transition: all 0.2s;
+}
+
+.fields__radio--container:hover {
+  cursor: pointer;
+  border: 1px solid var(--primary-lime);
+}
+
+.fields__radio--container:has(.fields__radio--container-input:checked) {
+  background-color: rgba(215, 218, 47, 0.15);
+  border: 1px solid var(--primary-lime);
 }
 
 .fields__radio--container-label {
   color: var(--slate-900);
+  width: 100%;
+}
+
+.fields__radio--container-label:hover {
+  cursor: pointer;
 }
 
 .fields__radio--container-input {
@@ -73,12 +108,20 @@
   background-color: transparent;
   font: inherit;
   color: currentColor;
-  width: 1.95rem;
-  height: 1.95rem;
+  min-width: 1.95rem;
+  min-height: 1.95rem;
   border: 2px solid var(--slate-700);
   border-radius: 50%;
   display: grid;
   place-items: center;
+}
+
+.fields__radio--container-input:hover {
+  cursor: pointer;
+}
+
+.fields__radio--container-input:checked {
+  border: 2px solid var(--primary-lime);
 }
 
 .fields__radio--container-input::before {
@@ -86,7 +129,7 @@
   width: 1.25rem;
   height: 1.25rem;
   border-radius: 50%;
-  background-color: var(--slate-700);
+  background-color: var(--primary-lime);
   opacity: 0;
   transition: all 0.2s;
 }

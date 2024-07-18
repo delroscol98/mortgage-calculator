@@ -1,13 +1,13 @@
 /* VARIABLES */
 :root {
-  --primary-lime: hsl(61, 70%, 52%);
-  --primary-red: hsl(4, 69%, 50%);
-  --white: hsl(0, 0%, 100%);
-  --slate-100: hsl(202, 86%, 94%);
-  --slate-300: hsl(203, 41%, 72%);
-  --slate-500: hsl(200, 26%, 54%);
-  --slate-700: hsl(200, 24%, 40%);
-  --slate-900: hsl(202, 55%, 16%);
+  --primary-lime: rgb(215, 218, 47);
+  --primary-red: rgb(215, 51, 40);
+  --white: rgb(255, 255, 255);
+  --slate-100: rgb(227, 243, 253);
+  --slate-300: rgb(154, 190, 213);
+  --slate-500: rgb(107, 148, 168);
+  --slate-700: rgb(78, 110, 126);
+  --slate-900: rgb(18, 47, 63);
 
   --gap-8: 0.8rem;
   --gap-12: 1.2rem;
