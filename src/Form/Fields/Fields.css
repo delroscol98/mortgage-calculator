@@ -1,2 +1,54 @@
 .fields {
+  display: grid;
+  gap: var(--gap-24);
+  margin-top: var(--gap-24);
+}
+
+.fields__container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-12);
+}
+
+.fields__container--label {
+  color: var(--slate-700);
+}
+
+.fields__input-container {
+  display: flex;
+  align-items: center;
+  border-radius: 0.4rem;
+  border: 1px solid var(--slate-500);
+  overflow: hidden;
+}
+
+.fields__input-container--fix {
+  color: var(--slate-700);
+  background-color: var(--slate-100);
+  padding: var(--gap-12) var(--gap-16);
+}
+
+.fields__input-container--input {
+  width: 100%;
+  padding: var(--gap-12) var(--gap-16);
+  border: none;
+  outline: none;
+}
+
+.fields__TermRate {
+  display: grid;
+  gap: var(--gap-24);
+}
+
+.fields__radio {
+}
+
+.fields__radio--legend {
+  color: var(--slate-700);
+}
+
+.fields__radio--container-label {
+}
+
+.fields__radio--container-input {
 }

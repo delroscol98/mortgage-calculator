@@ -4,42 +4,51 @@ const Fields = () => {
   return (
     <section className="fields">
       <article className="fields__container">
-        <label className="fields__container--label" htmlFor="amount">
+        <label className="fields__container--label fs-16" htmlFor="amount">
           Mortgage Amount
         </label>
-        <input
-          className="fields__container--input"
-          type="text"
-          id="amount"
-          name="amount"
-        />
-      </article>
-      <section>
-        <article className="fields__container">
-          <label className="fields__container--label" htmlFor="term">
-            Mortgage Term
-          </label>
+        <article className="fields__input-container">
+          <p className="fields__input-container--fix fs-18">$</p>
           <input
-            className="fields__container--input"
+            className="fields__input-container--input fs-18"
             type="text"
-            id="term"
-            name="term"
+            id="amount"
+            name="amount"
           />
         </article>
+      </article>
+      <section className="fields__TermRate">
         <article className="fields__container">
-          <label className="fields__container--label" htmlFor="rate">
+          <label className="fields__container--label fs-16" htmlFor="term">
+            Mortgage Term
+          </label>
+          <article className="fields__input-container">
+            <input
+              className="fields__input-container--input fs-18"
+              type="text"
+              id="term"
+              name="term"
+            />
+            <p className="fields__input-container--fix fs-18">years</p>
+          </article>
+        </article>
+        <article className="fields__container">
+          <label className="fields__container--label fs-16" htmlFor="rate">
             Mortgage Rate
           </label>
-          <input
-            className="fields__container--input"
-            type="text"
-            id="rate"
-            name="rate"
-          />
+          <article className="fields__input-container">
+            <input
+              className="fields__input-container--input fs-18"
+              type="text"
+              id="rate"
+              name="rate"
+            />
+            <p className="fields__input-container--fix fs-18">%</p>
+          </article>
         </article>
       </section>
       <section className="fields__radio">
-        <legend className="fields__radio--legend">Mortgage Type</legend>
+        <legend className="fields__radio--legend fs-16">Mortgage Type</legend>
         <article className="fields__radio--container">
           <input
             className="fields__radio--container-input"
