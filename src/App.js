@@ -4,6 +4,7 @@ import Form from "./Form/Form";
 import Header from "./Form/Header/Header";
 import Fields from "./Form/Fields/Fields";
 import Button from "./Form/Button/Button";
+import ResultsDefault from "./Results/ResultsDefault";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Button />
         </Fields>
       </Form>
+      <ResultsDefault />
     </main>
   );
 }

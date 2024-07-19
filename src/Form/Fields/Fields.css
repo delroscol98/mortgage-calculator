@@ -1,7 +1,7 @@
 .fields {
   display: grid;
   gap: var(--gap-24);
-  margin: var(--gap-24) 0;
+  margin-top: var(--gap-24);
 }
 
 .fields__container {

@@ -1,0 +1,25 @@
+.results {
+  background-color: var(--slate-900);
+  text-align: center;
+  padding: var(--gap-32) var(--gap-24);
+  display: grid;
+  gap: var(--gap-16);
+}
+
+@media screen and (min-width: 48em) {
+  .results {
+    padding: var(--gap-40);
+  }
+}
+
+.results__img {
+  justify-self: center;
+}
+
+.results__heading {
+  color: var(--white);
+}
+
+.results__body {
+  color: var(--slate-500);
+}
