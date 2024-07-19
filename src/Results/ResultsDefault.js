@@ -1,10 +1,10 @@
-import "./Results.css";
+import "./ResultsDefault.css";
 
 const ResultsDefault = () => {
   return (
-    <section className="results">
+    <section className="resultsDefault">
       <svg
-        className="results__img"
+        className="resultsDefault__img"
         xmlns="http://www.w3.org/2000/svg"
         width="192"
         height="192"
@@ -192,8 +192,8 @@ const ResultsDefault = () => {
           d="M19.622 98.995c-.153.845-1.036 1.498-1.881 1.613-.883.077-1.766-.115-2.573-.499a9.519 9.519 0 0 1-4.109-3.264c-.384-.615-.768-2.611.576-2.074.807.307 1.613 1.46 2.343 1.959.422.23 5.568 2.764 5.644 2.265Z"
         />
       </svg>
-      <h2 className="results__heading fs-24">Results shown here</h2>
-      <p className="results__body fs-16">
+      <h2 className="resultsDefault__heading fs-24">Results shown here</h2>
+      <p className="resultsDefault__body fs-16">
         Complete the form and click “calculate repayments” to see what your
         monthly repayments would be.
       </p>

@@ -1,0 +1,55 @@
+.resultCalculations {
+  background-color: var(--slate-900);
+  padding: var(--gap-32) var(--gap-24);
+  display: grid;
+  gap: var(--gap-24);
+}
+
+@media screen and (min-width: 48em) {
+  .resultCalculations {
+    padding: var(--gap-40);
+  }
+}
+
+.resultCalculations__text {
+  display: grid;
+  gap: var(--gap-16);
+}
+
+.resultCalculations__text--heading {
+  color: var(--white);
+}
+
+.resultCalculations__text--body {
+  color: var(--slate-500);
+}
+
+.resultCalculations__output {
+  padding: var(--gap-24) var(--gap-16);
+  border-radius: 0.8rem;
+  background-color: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 -0.4rem 0 var(--primary-lime);
+}
+
+.resultCalculations__output--container {
+  display: grid;
+  gap: var(--gap-8);
+}
+
+.resultCalculations__output--container-heading {
+  color: var(--slate-500);
+}
+
+.resultCalculations__output--container-repayments {
+  color: var(--primary-lime);
+}
+
+.resultCalculations__output--divider {
+  margin: var(--gap-16) 0;
+  border: none;
+  border-top: 1px solid #9abed540;
+}
+
+.resultCalculations__output--container-total {
+  color: var(--white);
+}
