@@ -16,8 +16,8 @@ function App() {
           <Button />
         </Fields>
       </Form>
-      {/* <ResultsDefault /> */}
-      <ResultsCalculations />
+      <ResultsDefault />
+      {/* <ResultsCalculations /> */}
     </main>
   );
 }

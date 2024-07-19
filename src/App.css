@@ -14,5 +14,7 @@
 @media screen and (min-width: 64em) {
   .calculator {
     margin-top: 20.9rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
