@@ -1,6 +1,25 @@
+import { useState } from "react";
 import "./Fields.css";
 
-const Fields = ({ children }) => {
+import ErrorMsg from "../../ErrorMsg.js";
+
+const Fields = ({ children, formData, setFormData }) => {
+  const amountHandler = (e) => {
+    setFormData({ ...formData, amount: +e.target.value });
+  };
+
+  const termHandler = (e) => {
+    setFormData({ ...formData, term: +e.target.value });
+  };
+
+  const rateHandler = (e) => {
+    setFormData({ ...formData, rate: +e.target.value });
+  };
+
+  const typeHandler = (e) => {
+    setFormData({ ...formData, type: e.target.value });
+  };
+
   return (
     <section className="fields">
       <article className="fields__container">
@@ -11,11 +30,14 @@ const Fields = ({ children }) => {
           <p className="fields__input-container--fix fs-18">$</p>
           <input
             className="fields__input-container--input fs-18"
-            type="text"
+            type="Number"
+            min="0"
             id="amount"
             name="amount"
+            onChange={amountHandler}
           />
         </article>
+        <ErrorMsg />
       </article>
       <section className="fields__TermRate">
         <article className="fields__container">
@@ -25,12 +47,15 @@ const Fields = ({ children }) => {
           <article className="fields__input-container">
             <input
               className="fields__input-container--input fs-18"
-              type="text"
+              type="Number"
+              min="0"
               id="term"
               name="term"
+              onChange={termHandler}
             />
             <p className="fields__input-container--fix fs-18">years</p>
           </article>
+          <ErrorMsg />
         </article>
         <article className="fields__container">
           <label className="fields__container--label fs-16" htmlFor="rate">
@@ -39,12 +64,15 @@ const Fields = ({ children }) => {
           <article className="fields__input-container">
             <input
               className="fields__input-container--input fs-18"
-              type="text"
+              type="Number"
+              min="0"
               id="rate"
               name="rate"
+              onChange={rateHandler}
             />
             <p className="fields__input-container--fix fs-18">%</p>
           </article>
+          <ErrorMsg />
         </article>
       </section>
       <section className="fields__radio">
@@ -55,6 +83,8 @@ const Fields = ({ children }) => {
             type="radio"
             name="mortgage-type"
             id="repayment"
+            value="repayment"
+            onClick={typeHandler}
           />
           <label
             className="fields__radio--container-label fs-18"
@@ -69,6 +99,8 @@ const Fields = ({ children }) => {
             type="radio"
             name="mortgage-type"
             id="interest"
+            value="interest"
+            onClick={typeHandler}
           />
           <label
             className="fields__radio--container-label fs-18"

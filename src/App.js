@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import "./App.css";
 
 import Form from "./Form/Form";
@@ -8,11 +10,18 @@ import ResultsDefault from "./Results/ResultsDefault";
 import ResultsCalculations from "./Results/ResultsCalculations";
 
 function App() {
+  const [formData, setFormData] = useState({
+    amount: "",
+    term: "",
+    rate: "",
+    type: "",
+  });
+
   return (
     <main className="calculator">
       <Form>
         <Header />
-        <Fields>
+        <Fields formData={formData} setFormData={setFormData}>
           <Button />
         </Fields>
       </Form>

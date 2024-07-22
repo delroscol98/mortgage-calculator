@@ -1,0 +1,11 @@
+.error-msg {
+  color: var(--primary-red);
+  display: none;
+}
+
+.fields__input-container:has(
+    .fields__input-container--input:invalid[isempty="true"]
+  )
+  ~ .error-msg {
+  display: block;
+}
