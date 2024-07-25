@@ -1,9 +1,9 @@
-import { useState } from "react";
 import "./Fields.css";
 
 import ErrorMsg from "../../ErrorMsg.js";
+import FormInput from "../FormInput";
 
-const Fields = ({ children, formData, setFormData }) => {
+const Fields = ({ children, formData, setFormData, showError }) => {
   const amountHandler = (e) => {
     setFormData({ ...formData, amount: +e.target.value });
   };
@@ -22,58 +22,28 @@ const Fields = ({ children, formData, setFormData }) => {
 
   return (
     <section className="fields">
-      <article className="fields__container">
-        <label className="fields__container--label fs-16" htmlFor="amount">
-          Mortgage Amount
-        </label>
-        <article className="fields__input-container">
-          <p className="fields__input-container--fix fs-18">$</p>
-          <input
-            className="fields__input-container--input fs-18"
-            type="Number"
-            min="0"
-            id="amount"
-            name="amount"
-            onChange={amountHandler}
-          />
-        </article>
-        <ErrorMsg />
-      </article>
+      <FormInput
+        label="Mortage Amount"
+        fix="$"
+        name="amount"
+        onChangeHandler={amountHandler}
+        showError={showError}
+      />
       <section className="fields__TermRate">
-        <article className="fields__container">
-          <label className="fields__container--label fs-16" htmlFor="term">
-            Mortgage Term
-          </label>
-          <article className="fields__input-container">
-            <input
-              className="fields__input-container--input fs-18"
-              type="Number"
-              min="0"
-              id="term"
-              name="term"
-              onChange={termHandler}
-            />
-            <p className="fields__input-container--fix fs-18">years</p>
-          </article>
-          <ErrorMsg />
-        </article>
-        <article className="fields__container">
-          <label className="fields__container--label fs-16" htmlFor="rate">
-            Mortgage Rate
-          </label>
-          <article className="fields__input-container">
-            <input
-              className="fields__input-container--input fs-18"
-              type="Number"
-              min="0"
-              id="rate"
-              name="rate"
-              onChange={rateHandler}
-            />
-            <p className="fields__input-container--fix fs-18">%</p>
-          </article>
-          <ErrorMsg />
-        </article>
+        <FormInput
+          label="Mortage Term"
+          fix="Years"
+          name="term"
+          onChangeHandler={termHandler}
+          showError={showError}
+        />
+        <FormInput
+          label="Mortage Rate"
+          fix="%"
+          name="rate"
+          onChangeHandler={rateHandler}
+          showError={showError}
+        />
       </section>
       <section className="fields__radio">
         <legend className="fields__radio--legend fs-16">Mortgage Type</legend>
@@ -109,6 +79,7 @@ const Fields = ({ children, formData, setFormData }) => {
             Interest Only
           </label>
         </article>
+        <ErrorMsg showError={showError} />
       </section>
       {children}
     </section>

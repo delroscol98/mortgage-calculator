@@ -3,9 +3,27 @@
   display: none;
 }
 
-.fields__input-container:has(
-    .fields__input-container--input:invalid[isempty="true"]
-  )
+.error-msg[error="true"] {
+  display: block;
+}
+
+.formInput:has(.formInput__container--input[focused="true"]) .error-msg {
+  display: block;
+}
+
+.formInput__container:has(.formInput__container--input[focused="true"]),
+.formInput__container.showError {
+  border: 1px solid var(--primary-red);
+}
+
+.formInput__container:has(.formInput__container--input[focused="true"])
+  > .formInput__container--fix,
+.formInput__container.showError > .formInput__container--fix {
+  background-color: var(--primary-red);
+  color: var(--white);
+}
+
+.formInput__container:has(.formInput__container--input[focused="true"])
   ~ .error-msg {
   display: block;
 }

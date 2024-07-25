@@ -1,8 +1,8 @@
 import "./Button.css";
 
-const Button = () => {
+const Button = ({ onCalculate }) => {
   return (
-    <button className="calculate__btn fs-18">
+    <button className="calculate__btn fs-18" onClick={onCalculate}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"

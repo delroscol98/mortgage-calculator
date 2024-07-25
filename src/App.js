@@ -17,16 +17,35 @@ function App() {
     type: "",
   });
 
+  const [isValid, setIsValid] = useState(false);
+  const [showError, setShowError] = useState(false);
+
+  const calculateButtonHandler = (e) => {
+    e.preventDefault();
+    for (const input in formData) {
+      if (!formData[input]) {
+        setIsValid(false);
+        setShowError(true);
+      } else {
+        setIsValid(true);
+        setShowError(false);
+      }
+    }
+  };
+
   return (
     <main className="calculator">
       <Form>
         <Header />
-        <Fields formData={formData} setFormData={setFormData}>
-          <Button />
+        <Fields
+          formData={formData}
+          setFormData={setFormData}
+          showError={showError}
+        >
+          <Button onCalculate={calculateButtonHandler} />
         </Fields>
       </Form>
-      <ResultsDefault />
-      {/* <ResultsCalculations /> */}
+      {!isValid ? <ResultsDefault /> : <ResultsCalculations />}
     </main>
   );
 }
