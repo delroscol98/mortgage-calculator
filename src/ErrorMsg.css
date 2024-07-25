@@ -7,10 +7,6 @@
   display: block;
 }
 
-.formInput:has(.formInput__container--input[focused="true"]) .error-msg {
-  display: block;
-}
-
 .formInput__container:has(.formInput__container--input[focused="true"]),
 .formInput__container.showError {
   border: 1px solid var(--primary-red);

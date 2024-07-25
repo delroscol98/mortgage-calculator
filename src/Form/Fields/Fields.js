@@ -13,7 +13,7 @@ const Fields = ({ children, formData, setFormData, showError }) => {
   };
 
   const rateHandler = (e) => {
-    setFormData({ ...formData, rate: +e.target.value });
+    setFormData({ ...formData, rate: +e.target.value / 100 });
   };
 
   const typeHandler = (e) => {

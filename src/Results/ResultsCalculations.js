@@ -1,6 +1,6 @@
 import "./ResultsCalculations.css";
 
-const ResultsCalculations = () => {
+const ResultsCalculations = ({ monthlyRepayment, totalRepayment }) => {
   return (
     <section className="resultCalculations">
       <section className="resultCalculations__text">
@@ -19,7 +19,7 @@ const ResultsCalculations = () => {
             Your monthly repayments
           </h3>
           <p className="resultCalculations__output--container-repayments fs-56">
-            $0
+            ${monthlyRepayment ? monthlyRepayment.toFixed(2) : 0}
           </p>
         </article>
 
@@ -30,7 +30,7 @@ const ResultsCalculations = () => {
             Total you'll repay over the term
           </h3>
           <p className="resultCalculations__output--container-total fs-24">
-            $0
+            ${totalRepayment ? totalRepayment.toFixed(2) : 0}
           </p>
         </article>
       </section>

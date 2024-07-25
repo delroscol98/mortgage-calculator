@@ -17,7 +17,7 @@ function App() {
     type: "",
   });
 
-  const [isValid, setIsValid] = useState(false);
+  const [isValid, setIsValid] = useState(true);
   const [showError, setShowError] = useState(false);
 
   const calculateButtonHandler = (e) => {
@@ -33,6 +33,14 @@ function App() {
     }
   };
 
+  const { amount, term, rate, type } = formData;
+  const monthlyRate = rate / 12;
+  const monthlyTerm = term * 12;
+
+  const monthlyRepayment =
+    (amount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -monthlyTerm));
+  const totalRepayment = monthlyRepayment * monthlyTerm;
+
   return (
     <main className="calculator">
       <Form>
@@ -45,7 +53,14 @@ function App() {
           <Button onCalculate={calculateButtonHandler} />
         </Fields>
       </Form>
-      {!isValid ? <ResultsDefault /> : <ResultsCalculations />}
+      {!isValid ? (
+        <ResultsDefault />
+      ) : (
+        <ResultsCalculations
+          monthlyRepayment={monthlyRepayment}
+          totalRepayment={totalRepayment}
+        />
+      )}
     </main>
   );
 }
