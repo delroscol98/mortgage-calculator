@@ -1,6 +1,22 @@
 import "./ResultsCalculations.css";
 
-const ResultsCalculations = ({ monthlyRepayment, totalRepayment }) => {
+const ResultsCalculations = ({ formData }) => {
+  const { amount, term, rate, type } = formData;
+  const monthlyRate = rate / 12;
+  const monthlyTerm = term * 12;
+
+  let monthlyRepayment;
+  let totalRepayment;
+
+  if (type === "repayment") {
+    monthlyRepayment =
+      (amount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -monthlyTerm));
+    totalRepayment = monthlyRepayment * monthlyTerm;
+  } else if (type === "interest") {
+    monthlyRepayment = amount * monthlyRate;
+    totalRepayment = monthlyRepayment * monthlyTerm;
+  }
+
   return (
     <section className="resultCalculations">
       <section className="resultCalculations__text">
