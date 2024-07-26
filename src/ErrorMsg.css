@@ -3,6 +3,10 @@
   display: none;
 }
 
+.error-msg[error="true"] {
+  display: block;
+}
+
 .formInput__container:has(.formInput__container--input[focused="true"]) {
   border: 1px solid var(--primary-red);
 }

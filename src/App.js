@@ -4,7 +4,6 @@ import "./App.css";
 
 import Form from "./Form/Form";
 import Fields from "./Form/Fields/Fields";
-import Button from "./Form/Button/Button";
 import ResultsDefault from "./Results/ResultsDefault";
 import ResultsCalculations from "./Results/ResultsCalculations";
 
@@ -18,17 +17,6 @@ function App() {
 
   const [isValid, setIsValid] = useState(false);
 
-  const calculateButtonHandler = (e) => {
-    e.preventDefault();
-    for (const input in formData) {
-      if (!formData[input]) {
-        setIsValid(false);
-      } else {
-        setIsValid(true);
-      }
-    }
-  };
-
   return (
     <main className="calculator">
       <Form>
@@ -36,9 +24,7 @@ function App() {
           formData={formData}
           setFormData={setFormData}
           setIsValid={setIsValid}
-        >
-          <Button onCalculate={calculateButtonHandler} />
-        </Fields>
+        ></Fields>
       </Form>
       {!isValid ? (
         <ResultsDefault />

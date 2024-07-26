@@ -120,3 +120,30 @@
 .fields__radio--container-input:checked::before {
   opacity: 1;
 }
+
+.calculate__btn {
+  width: 100%;
+  padding: var(--gap-16) 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--gap-12);
+  border: none;
+  border-radius: 3rem;
+  background-color: var(--primary-lime);
+  color: var(--slate-900);
+  transition: all 0.2s;
+  margin-top: var(--gap-24);
+}
+
+.calculate__btn:hover {
+  cursor: pointer;
+  background-color: #ebed97;
+}
+
+@media screen and (min-width: 48em) {
+  .calculate__btn {
+    width: 31.4rem;
+    margin-top: var(--gap-40);
+  }
+}

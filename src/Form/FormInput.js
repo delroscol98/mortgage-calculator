@@ -1,11 +1,14 @@
-import { forwardRef, useState } from "react";
+import { forwardRef } from "react";
 
 import "./FormInput.css";
 
-import ErrorMsg from "../ErrorMsg";
-
 const FormInput = forwardRef(
-  ({ label, fix, name, value, onChangeHandler }, ref) => {
+  ({ label, fix, name, value, onChangeHandler, children }, ref) => {
+    const showErrorHandler = () => {
+      ref.current.value === ""
+        ? ref.current.setAttribute("focused", "true")
+        : ref.current.setAttribute("focused", "false");
+    };
     return (
       <article className="formInput">
         <label className="formInput__label fs-16" htmlFor={name}>
@@ -21,11 +24,11 @@ const FormInput = forwardRef(
             name={name}
             value={value}
             onChange={onChangeHandler}
-            onBlur={() => ref.current.setAttribute("focused", "true")}
+            onBlur={showErrorHandler}
             ref={ref}
           />
         </article>
-        <ErrorMsg />
+        {children}
       </article>
     );
   }

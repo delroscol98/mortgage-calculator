@@ -4,12 +4,13 @@ import ErrorMsg from "../../ErrorMsg.js";
 import FormInput from "../FormInput";
 import { useRef } from "react";
 
-const Fields = ({ children, formData, setFormData, setIsValid }) => {
+const Fields = ({ formData, setFormData, setIsValid }) => {
   const amountRef = useRef(null);
   const termRef = useRef(null);
   const rateRef = useRef(null);
   const repaymentRef = useRef(null);
   const interestRef = useRef(null);
+  const errorRef = useRef(null);
 
   const clearButtonHandler = (e) => {
     e.preventDefault();
@@ -23,6 +24,9 @@ const Fields = ({ children, formData, setFormData, setIsValid }) => {
 
     repaymentRef.current.checked = false;
     interestRef.current.checked = false;
+    amountRef.current.setAttribute("focused", "false");
+    termRef.current.setAttribute("focused", "false");
+    rateRef.current.setAttribute("focused", "false");
 
     setIsValid(false);
   };
@@ -43,6 +47,26 @@ const Fields = ({ children, formData, setFormData, setIsValid }) => {
     setFormData({ ...formData, type: e.target.value });
   };
 
+  const validations = (e) => {
+    e.preventDefault();
+    const { amount, term, rate, type } = formData;
+
+    !amount || !term || !rate || !type ? setIsValid(false) : setIsValid(true);
+
+    amount === ""
+      ? amountRef.current.setAttribute("focused", "true")
+      : amountRef.current.setAttribute("focused", "false");
+    term === ""
+      ? termRef.current.setAttribute("focused", "true")
+      : termRef.current.setAttribute("focused", "false");
+    rate === ""
+      ? rateRef.current.setAttribute("focused", "true")
+      : rateRef.current.setAttribute("focused", "false");
+    !type
+      ? errorRef.current.setAttribute("error", "true")
+      : errorRef.current.setAttribute("error", "false");
+  };
+
   return (
     <>
       <header className="header">
@@ -59,7 +83,9 @@ const Fields = ({ children, formData, setFormData, setIsValid }) => {
           value={formData.amount}
           onChangeHandler={amountHandler}
           ref={amountRef}
-        />
+        >
+          <ErrorMsg />
+        </FormInput>
         <section className="fields__TermRate">
           <FormInput
             label="Mortage Term"
@@ -68,7 +94,9 @@ const Fields = ({ children, formData, setFormData, setIsValid }) => {
             value={formData.term}
             onChangeHandler={termHandler}
             ref={termRef}
-          />
+          >
+            <ErrorMsg />
+          </FormInput>
           <FormInput
             label="Mortage Rate"
             fix="%"
@@ -76,7 +104,9 @@ const Fields = ({ children, formData, setFormData, setIsValid }) => {
             value={formData.rate}
             onChangeHandler={rateHandler}
             ref={rateRef}
-          />
+          >
+            <ErrorMsg />
+          </FormInput>
         </section>
         <section className="fields__radio">
           <legend className="fields__radio--legend fs-16">Mortgage Type</legend>
@@ -114,10 +144,24 @@ const Fields = ({ children, formData, setFormData, setIsValid }) => {
               Interest Only
             </label>
           </article>
-          <ErrorMsg />
+          <ErrorMsg ref={errorRef} />
         </section>
-        {children}
       </section>
+      <button className="calculate__btn fs-18" onClick={validations}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="#133041"
+            d="M18.75 2.25H5.25a1.5 1.5 0 0 0-1.5 1.5v16.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5V3.75a1.5 1.5 0 0 0-1.5-1.5Zm-10.5 16.5a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm0-3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25ZM12 18.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25ZM12 15a1.125 1.125 0 1 1 0-2.25A1.125 1.125 0 0 1 12 15Zm3.75 3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm0-3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm1.5-5.25a.75.75 0 0 1-.75.75h-9a.75.75 0 0 1-.75-.75V6a.75.75 0 0 1 .75-.75h9a.75.75 0 0 1 .75.75v3.75Z"
+          />
+        </svg>
+        Calculate Repayments
+      </button>
     </>
   );
 };
