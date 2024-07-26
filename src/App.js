@@ -17,17 +17,14 @@ function App() {
   });
 
   const [isValid, setIsValid] = useState(false);
-  const [showError, setShowError] = useState(false);
 
   const calculateButtonHandler = (e) => {
     e.preventDefault();
     for (const input in formData) {
       if (!formData[input]) {
         setIsValid(false);
-        setShowError(true);
       } else {
         setIsValid(true);
-        setShowError(false);
       }
     }
   };
@@ -38,7 +35,6 @@ function App() {
         <Fields
           formData={formData}
           setFormData={setFormData}
-          showError={showError}
           setIsValid={setIsValid}
         >
           <Button onCalculate={calculateButtonHandler} />

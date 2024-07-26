@@ -3,18 +3,12 @@
   display: none;
 }
 
-.error-msg[error="true"] {
-  display: block;
-}
-
-.formInput__container:has(.formInput__container--input[focused="true"]),
-.formInput__container.showError {
+.formInput__container:has(.formInput__container--input[focused="true"]) {
   border: 1px solid var(--primary-red);
 }
 
 .formInput__container:has(.formInput__container--input[focused="true"])
-  > .formInput__container--fix,
-.formInput__container.showError > .formInput__container--fix {
+  > .formInput__container--fix {
   background-color: var(--primary-red);
   color: var(--white);
 }

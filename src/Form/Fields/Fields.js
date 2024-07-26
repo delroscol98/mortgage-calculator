@@ -4,7 +4,10 @@ import ErrorMsg from "../../ErrorMsg.js";
 import FormInput from "../FormInput";
 import { useRef } from "react";
 
-const Fields = ({ children, formData, setFormData, showError, setIsValid }) => {
+const Fields = ({ children, formData, setFormData, setIsValid }) => {
+  const amountRef = useRef(null);
+  const termRef = useRef(null);
+  const rateRef = useRef(null);
   const repaymentRef = useRef(null);
   const interestRef = useRef(null);
 
@@ -55,7 +58,7 @@ const Fields = ({ children, formData, setFormData, showError, setIsValid }) => {
           name="amount"
           value={formData.amount}
           onChangeHandler={amountHandler}
-          showError={showError}
+          ref={amountRef}
         />
         <section className="fields__TermRate">
           <FormInput
@@ -64,7 +67,7 @@ const Fields = ({ children, formData, setFormData, showError, setIsValid }) => {
             name="term"
             value={formData.term}
             onChangeHandler={termHandler}
-            showError={showError}
+            ref={termRef}
           />
           <FormInput
             label="Mortage Rate"
@@ -72,7 +75,7 @@ const Fields = ({ children, formData, setFormData, showError, setIsValid }) => {
             name="rate"
             value={formData.rate}
             onChangeHandler={rateHandler}
-            showError={showError}
+            ref={rateRef}
           />
         </section>
         <section className="fields__radio">
@@ -111,7 +114,7 @@ const Fields = ({ children, formData, setFormData, showError, setIsValid }) => {
               Interest Only
             </label>
           </article>
-          <ErrorMsg showError={showError} />
+          <ErrorMsg />
         </section>
         {children}
       </section>
