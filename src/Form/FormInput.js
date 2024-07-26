@@ -4,7 +4,7 @@ import "./FormInput.css";
 
 import ErrorMsg from "../ErrorMsg";
 
-const FormInput = ({ label, fix, name, onChangeHandler, showError }) => {
+const FormInput = ({ label, fix, name, value, onChangeHandler, showError }) => {
   const [focused, setFocused] = useState(false);
 
   const setFocusedHandler = (e) => {
@@ -24,6 +24,7 @@ const FormInput = ({ label, fix, name, onChangeHandler, showError }) => {
           min="0"
           id={name}
           name={name}
+          value={value}
           onChange={onChangeHandler}
           onBlur={setFocusedHandler}
           focused={focused.toString()}

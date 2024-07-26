@@ -2,7 +2,7 @@ import "./ResultsCalculations.css";
 
 const ResultsCalculations = ({ formData }) => {
   const { amount, term, rate, type } = formData;
-  const monthlyRate = rate / 12;
+  const monthlyRate = rate / 1200;
   const monthlyTerm = term * 12;
 
   let monthlyRepayment;

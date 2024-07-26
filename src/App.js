@@ -3,7 +3,6 @@ import { useState } from "react";
 import "./App.css";
 
 import Form from "./Form/Form";
-import Header from "./Form/Header/Header";
 import Fields from "./Form/Fields/Fields";
 import Button from "./Form/Button/Button";
 import ResultsDefault from "./Results/ResultsDefault";
@@ -17,7 +16,7 @@ function App() {
     type: "",
   });
 
-  const [isValid, setIsValid] = useState(true);
+  const [isValid, setIsValid] = useState(false);
   const [showError, setShowError] = useState(false);
 
   const calculateButtonHandler = (e) => {
@@ -36,11 +35,11 @@ function App() {
   return (
     <main className="calculator">
       <Form>
-        <Header />
         <Fields
           formData={formData}
           setFormData={setFormData}
           showError={showError}
+          setIsValid={setIsValid}
         >
           <Button onCalculate={calculateButtonHandler} />
         </Fields>
