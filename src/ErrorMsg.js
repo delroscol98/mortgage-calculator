@@ -1,10 +1,10 @@
 import { forwardRef } from "react";
 import "./ErrorMsg.css";
 
-const ErrorMsg = forwardRef(({ _ }, ref) => {
+const ErrorMsg = forwardRef(({ message }, ref) => {
   return (
     <p className="error-msg fs-14" ref={ref}>
-      This field is required
+      {message}
     </p>
   );
 });

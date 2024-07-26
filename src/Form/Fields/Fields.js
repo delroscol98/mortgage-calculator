@@ -53,13 +53,13 @@ const Fields = ({ formData, setFormData, setIsValid }) => {
 
     !amount || !term || !rate || !type ? setIsValid(false) : setIsValid(true);
 
-    amount === ""
+    amount === "" || amount < 0
       ? amountRef.current.setAttribute("focused", "true")
       : amountRef.current.setAttribute("focused", "false");
-    term === ""
+    term === "" || term < 0
       ? termRef.current.setAttribute("focused", "true")
       : termRef.current.setAttribute("focused", "false");
-    rate === ""
+    rate === "" || rate < 0
       ? rateRef.current.setAttribute("focused", "true")
       : rateRef.current.setAttribute("focused", "false");
     !type
@@ -84,7 +84,13 @@ const Fields = ({ formData, setFormData, setIsValid }) => {
           onChangeHandler={amountHandler}
           ref={amountRef}
         >
-          <ErrorMsg />
+          <ErrorMsg
+            message={
+              formData.amount < 0
+                ? "Enter a valid amount"
+                : "This field is required"
+            }
+          />
         </FormInput>
         <section className="fields__TermRate">
           <FormInput
@@ -95,7 +101,13 @@ const Fields = ({ formData, setFormData, setIsValid }) => {
             onChangeHandler={termHandler}
             ref={termRef}
           >
-            <ErrorMsg />
+            <ErrorMsg
+              message={
+                formData.term < 0
+                  ? "Enter a valid term"
+                  : "This field is required"
+              }
+            />
           </FormInput>
           <FormInput
             label="Mortage Rate"
@@ -105,7 +117,13 @@ const Fields = ({ formData, setFormData, setIsValid }) => {
             onChangeHandler={rateHandler}
             ref={rateRef}
           >
-            <ErrorMsg />
+            <ErrorMsg
+              message={
+                formData.rate < 0
+                  ? "Enter a valid rate"
+                  : "This field is required"
+              }
+            />
           </FormInput>
         </section>
         <section className="fields__radio">
@@ -144,7 +162,7 @@ const Fields = ({ formData, setFormData, setIsValid }) => {
               Interest Only
             </label>
           </article>
-          <ErrorMsg ref={errorRef} />
+          <ErrorMsg ref={errorRef} message={"This field is required"} />
         </section>
       </section>
       <button className="calculate__btn fs-18" onClick={validations}>

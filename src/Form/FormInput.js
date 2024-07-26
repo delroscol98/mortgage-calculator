@@ -5,7 +5,7 @@ import "./FormInput.css";
 const FormInput = forwardRef(
   ({ label, fix, name, value, onChangeHandler, children }, ref) => {
     const showErrorHandler = () => {
-      ref.current.value === ""
+      ref.current.value === "" || ref.current.value < 0
         ? ref.current.setAttribute("focused", "true")
         : ref.current.setAttribute("focused", "false");
     };
