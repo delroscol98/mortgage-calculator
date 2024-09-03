@@ -33,7 +33,7 @@
 
 .fields {
   display: grid;
-  gap: var(--gap-24);
+  gap: var(--gap-12);
   margin-top: var(--gap-24);
 }
 
